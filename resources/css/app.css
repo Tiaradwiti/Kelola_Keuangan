@@ -1,3 +1,263 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --garden-sky: #f8f5df;
+        --garden-mint: #d8f1d2;
+        --garden-leaf: #1f5f3b;
+        --garden-leaf-soft: #2e7b4c;
+        --garden-soil: #7f4f2b;
+        --garden-soil-deep: #5d371d;
+        --garden-sun: #f6b94f;
+        --garden-blush: #f6a6a0;
+        --garden-cream: #fffaf1;
+        --garden-card: rgba(255, 250, 241, 0.82);
+        --garden-stroke: rgba(31, 95, 59, 0.12);
+    }
+
+    body {
+        font-family: "Sora", ui-sans-serif, system-ui, sans-serif;
+        background: var(--garden-sky);
+        color: #16301f;
+    }
+}
+
+@layer components {
+    .font-display {
+        font-family: "Fraunces", ui-serif, Georgia, serif;
+    }
+
+    .garden-page {
+        background:
+            radial-gradient(circle at top left, rgba(255, 239, 192, 0.95), transparent 32%),
+            radial-gradient(circle at right 18%, rgba(216, 241, 210, 0.92), transparent 24%),
+            linear-gradient(180deg, #fffcef 0%, #f6f2d8 46%, #dff0d8 100%);
+    }
+
+    .garden-panel {
+        @apply rounded-[2rem] border shadow-[0_20px_70px_rgba(31,95,59,0.10)] backdrop-blur-sm;
+        background: var(--garden-card);
+        border-color: var(--garden-stroke);
+    }
+
+    .garden-chip {
+        @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold;
+        background: rgba(255, 250, 241, 0.78);
+        border-color: rgba(31, 95, 59, 0.1);
+        color: #245437;
+    }
+
+    .garden-button-primary {
+        @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition duration-300;
+        background: linear-gradient(135deg, #245437 0%, #3c8a56 100%);
+        color: #fffdf7;
+        box-shadow: 0 14px 34px rgba(36, 84, 55, 0.24);
+    }
+
+    .garden-button-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(36, 84, 55, 0.28);
+    }
+
+    .garden-button-secondary {
+        @apply inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition duration-300;
+        border-color: rgba(31, 95, 59, 0.16);
+        background: rgba(255, 255, 255, 0.44);
+        color: #1f5f3b;
+    }
+
+    .garden-button-secondary:hover {
+        @apply bg-white/80;
+    }
+
+    .garden-stat-card {
+        @apply rounded-[1.5rem] border p-4 shadow-[0_18px_44px_rgba(31,95,59,0.08)];
+        background: rgba(255, 251, 245, 0.88);
+        border-color: rgba(31, 95, 59, 0.1);
+    }
+
+    .garden-feature-card {
+        @apply garden-panel p-6;
+    }
+
+    .garden-visual {
+        position: relative;
+        overflow: hidden;
+        min-height: 34rem;
+        border-radius: 2rem;
+        background:
+            radial-gradient(circle at 20% 16%, rgba(255, 255, 255, 0.72), transparent 18%),
+            linear-gradient(180deg, rgba(195, 232, 255, 0.95) 0%, rgba(234, 244, 212, 0.98) 56%, rgba(177, 218, 158, 1) 100%);
+    }
+
+    .garden-cloud {
+        position: absolute;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.78);
+        filter: blur(1px);
+    }
+
+    .garden-hill {
+        position: absolute;
+        inset-inline: -8%;
+        border-radius: 9999px;
+    }
+
+    .garden-flower {
+        position: absolute;
+        width: 4.5rem;
+        height: 9rem;
+        --flower-scale: 1;
+        transform-origin: bottom center;
+        animation: flower-sway 6s ease-in-out infinite;
+    }
+
+    .garden-flower__stem {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0.35rem;
+        height: 4.75rem;
+        transform: translateX(-50%);
+        border-radius: 9999px;
+        background: linear-gradient(180deg, #45975b 0%, #245437 100%);
+    }
+
+    .garden-flower__leaf {
+        position: absolute;
+        bottom: 2.15rem;
+        width: 1.45rem;
+        height: 0.9rem;
+        border-radius: 9999px 9999px 9999px 0;
+        background: #56a467;
+    }
+
+    .garden-flower__leaf--left {
+        left: 0.8rem;
+        transform: rotate(-35deg);
+    }
+
+    .garden-flower__leaf--right {
+        right: 0.8rem;
+        border-radius: 9999px 9999px 0 9999px;
+        transform: rotate(35deg);
+    }
+
+    .garden-flower__bloom {
+        position: absolute;
+        left: 50%;
+        top: 0.65rem;
+        width: 3.8rem;
+        height: 3.8rem;
+        transform: translateX(-50%);
+    }
+
+    .garden-flower__petal {
+        position: absolute;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 9999px;
+        box-shadow: inset 0 -4px 10px rgba(255, 255, 255, 0.28);
+    }
+
+    .garden-flower__petal--top {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .garden-flower__petal--right {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    .garden-flower__petal--bottom {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .garden-flower__petal--left {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .garden-flower__center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1.05rem;
+        height: 1.05rem;
+        transform: translate(-50%, -50%);
+        border-radius: 9999px;
+        background: #ffd36d;
+        box-shadow: 0 0 0 6px rgba(255, 211, 109, 0.18);
+    }
+
+    .garden-flower--rose .garden-flower__petal {
+        background: linear-gradient(145deg, #ffb0a8 0%, #f17a7a 100%);
+    }
+
+    .garden-flower--gold .garden-flower__petal {
+        background: linear-gradient(145deg, #ffd978 0%, #f3ad36 100%);
+    }
+
+    .garden-flower--violet .garden-flower__petal {
+        background: linear-gradient(145deg, #d5b9ff 0%, #a883f5 100%);
+    }
+
+    .garden-flower--cream .garden-flower__petal {
+        background: linear-gradient(145deg, #fff8d6 0%, #f5d98a 100%);
+    }
+
+    .garden-flower--coral .garden-flower__petal {
+        background: linear-gradient(145deg, #ffcfb7 0%, #ff8f73 100%);
+    }
+
+    .garden-step {
+        @apply rounded-[1.75rem] border p-6;
+        background: rgba(255, 255, 255, 0.5);
+        border-color: rgba(31, 95, 59, 0.08);
+    }
+}
+
+@layer utilities {
+    .text-garden-leaf {
+        color: var(--garden-leaf);
+    }
+
+    .text-garden-leaf-soft {
+        color: rgba(22, 48, 31, 0.78);
+    }
+
+    .text-garden-leaf-muted {
+        color: rgba(22, 48, 31, 0.7);
+    }
+
+    .text-garden-soil {
+        color: var(--garden-soil);
+    }
+
+    .text-garden-soil-soft {
+        color: rgba(127, 79, 43, 0.7);
+    }
+
+    .text-garden-soil-faint {
+        color: rgba(127, 79, 43, 0.65);
+    }
+}
+
+@keyframes flower-sway {
+    0%,
+    100% {
+        transform: scale(var(--flower-scale)) rotate(-2deg);
+    }
+
+    50% {
+        transform: scale(var(--flower-scale)) rotate(2deg);
+    }
+}
