@@ -2,6 +2,13 @@
     <div x-data="{ jendelaTerbuka: false }" class="min-h-screen bg-[#F0FDF4] pb-12">
         
         <div class="max-w-7xl mx-auto pt-8 px-6 lg:px-8">
+            <div class="mb-4">
+                <a href="{{ url('/') }}" class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 shadow-sm hover:bg-emerald-50 transition-all">
+                    <span aria-hidden="true">←</span>
+                    <span>Kembali ke Landing Page</span>
+                </a>
+            </div>
+
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
                     <h2 class="font-display text-3xl text-[#245437]">
