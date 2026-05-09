@@ -3,15 +3,27 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TopUpController;
+use App\Http\Controllers\AccountController;
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth')  ;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/accounts/create', [AccountController::class, 'create'])
+    ->name('accounts.create');
 
+Route::post('/accounts/store', [AccountController::class, 'store'])
+    ->name('accounts.store');
+
+Route::get('/topup', [TopUpController::class, 'create'])
+    ->name('topup.create');
+
+Route::post('/topup', [TopUpController::class, 'store'])
+    ->name('topup.store');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -25,3 +37,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
