@@ -23,9 +23,9 @@
                     </x-nav-link>
                     
                     <!-- Contoh menu tambahan agar lebih berwarna -->
-                    <a href="#" class="inline-flex items-center px-4 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-emerald-800/60 hover:text-[#4fa35f] hover:border-emerald-200 transition duration-150 ease-in-out">
+                    <a href="{{ route('accounts.create') }}" class="inline-flex items-center px-4 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-emerald-800/60 hover:text-[#4fa35f] hover:border-emerald-200 transition duration-150 ease-in-out">
                         <span class="flex items-center gap-2">
-                            <span class="text-lg">🌻</span> Kebunku
+                            <span class="text-lg">🌻</span> Buat Akun
                         </span>
                     </a>
                 </div>
@@ -90,8 +90,8 @@
                 class="text-[#245437] font-medium border-l-4 border-[#4fa35f] bg-emerald-50">
                 🌿 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <a href="#" class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-emerald-800/60 hover:text-[#4fa35f] hover:bg-emerald-50 transition duration-150 ease-in-out">
-                🌻 Kebunku
+            <a href="{{ route('accounts.create') }}" class="block w-full ps-3 pe-4 py-2 border-l-4 border-transparent text-start text-base font-medium text-emerald-800/60 hover:text-[#4fa35f] hover:bg-emerald-50 transition duration-150 ease-in-out">
+                🌻Buat Akun
             </a>
         </div>
 
