@@ -9,10 +9,16 @@ use App\Http\Controllers\AccountController;
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth')  ;
 
+
+Route::resource('transactions', TransactionController::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])
+    ->name('transactions.destroy'); 
+    
 Route::get('/accounts/create', [AccountController::class, 'create'])
     ->name('accounts.create');
 
