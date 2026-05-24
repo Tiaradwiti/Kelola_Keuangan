@@ -21,18 +21,24 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <a href="{{ route('transactions.create') }}"
-                       class="px-6 py-3 bg-white text-[#245437] border border-emerald-100 rounded-2xl font-bold shadow-sm hover:bg-emerald-50 transition-all flex items-center justify-center">
-                        Catat Pengeluaran
-                    </a>
+    
+    <a href="{{ route('transactions.create') }}"
+       class="px-6 py-3 bg-white text-[#245437] border border-emerald-100 rounded-2xl font-bold shadow-sm hover:bg-emerald-50 transition-all flex items-center justify-center">
+        Catat Pengeluaran
+    </a>
 
-                    <a href="{{ route('topup.create') }}"
-   class="flex-1 md:flex-none px-6 py-3 bg-[#245437] text-white rounded-2xl font-bold shadow-lg shadow-emerald-900/20 hover:bg-[#1a3d28] transition-all flex items-center justify-center">
+    <!-- TOMBOL RIWAYAT -->
+    <a href="{{ route('transactions.index') }}"
+       class="px-6 py-3 bg-emerald-100 text-[#245437] border border-emerald-200 rounded-2xl font-bold shadow-sm hover:bg-emerald-200 transition-all flex items-center justify-center">
+        Riwayat Transaksi
+    </a>
 
-    + Top Up
+    <a href="{{ route('topup.create') }}"
+       class="flex-1 md:flex-none px-6 py-3 bg-[#245437] text-white rounded-2xl font-bold shadow-lg shadow-emerald-900/20 hover:bg-[#1a3d28] transition-all flex items-center justify-center">
+        + Top Up
+    </a>
 
-</a>
-                </div>
+</div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
